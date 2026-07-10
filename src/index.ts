@@ -1,4 +1,4 @@
-import { createServer, type Server } from "node:http";
+import { createServer, type Server, type IncomingMessage } from "node:http";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
 
@@ -22,22 +22,45 @@ function registerTools(server: McpServer): void {
   );
 }
 
+// A fresh McpServer per request — required for stateless Streamable HTTP.
+// Reusing one server across requests double-connects the transport and fails (502).
+export function buildMcpServer(): McpServer {
+  const server = new McpServer({ name: SERVER_NAME, version: SERVER_VERSION });
+  registerTools(server);
+  return server;
+}
+
+async function readJsonBody(req: IncomingMessage): Promise<unknown> {
+  return new Promise((resolve, reject) => {
+    let raw = "";
+    req.on("data", (chunk: Buffer) => { raw += chunk.toString(); });
+    req.on("end", () => { try { resolve(JSON.parse(raw)); } catch { resolve(undefined); } });
+    req.on("error", reject);
+  });
+}
+
 export function buildServer(): { httpServer: Server; mcpServer: McpServer } {
-  const mcpServer = new McpServer({ name: SERVER_NAME, version: SERVER_VERSION });
-  registerTools(mcpServer);
+  // Representative server exposed for tests; the HTTP path builds its own per request.
+  const mcpServer = buildMcpServer();
 
   const httpServer = createServer(async (req, res) => {
-    if (req.method === "GET" && req.url === "/health") {
+    const url = new URL(req.url ?? "/", `http://localhost`);
+
+    if (url.pathname === "/health" && req.method === "GET") {
       res.writeHead(200, { "content-type": "application/json" });
       res.end(JSON.stringify({ status: "ok" }));
       return;
     }
-    if (req.url === "/mcp") {
+
+    if (url.pathname === "/mcp" && (req.method === "POST" || req.method === "GET" || req.method === "DELETE")) {
       const transport = new StreamableHTTPServerTransport({ sessionIdGenerator: undefined });
-      await mcpServer.connect(transport);
-      await transport.handleRequest(req, res);
+      const server = buildMcpServer(); // fresh per request (stateless)
+      await server.connect(transport);
+      const body = req.method === "POST" ? await readJsonBody(req) : undefined;
+      await transport.handleRequest(req, res, body);
       return;
     }
+
     res.writeHead(404, { "content-type": "application/json" });
     res.end(JSON.stringify({ error: "not found" }));
   });
