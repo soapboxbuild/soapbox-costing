@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "costing": { "type": "http", "url": "https://costing.mcp.soapbox.build/mcp" }
+  }
+}

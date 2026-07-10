@@ -1,0 +1,12 @@
+{
+  "name": "soapbox-costing",
+  "version": "0.1.0",
+  "description": "Construction cost intelligence for building decarbonization — CapEx (low/base/high), OpEx delta, distributed-energy economics, and electrical service-capacity estimates, with surfaced citations.",
+  "author": { "name": "Soapbox", "url": "https://soapbox.build" },
+  "homepage": "https://github.com/soapboxbuild/soapbox-costing",
+  "license": "Apache-2.0",
+  "mcpServers": {
+    "costing": { "type": "http", "url": "https://costing.mcp.soapbox.build/mcp" }
+  },
+  "skills": ["skills"]
+}
