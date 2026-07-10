@@ -26,7 +26,9 @@ test("fetchEiaPrice builds the correct v2 URL and parses the latest price", asyn
   assert.match(calledUrl, /api_key=TESTKEY/);
   assert.match(calledUrl, /facets\[stateid\]\[\]=CA/);
   assert.match(calledUrl, /facets\[sectorid\]\[\]=COM/);
-  assert.equal(r.price.value, 24.11);         // latest period first
+  // Regression: EIA 400s on a JSON `sort` param — it must NOT be sent.
+  assert.doesNotMatch(calledUrl, /sort=(%5B|\[)/, "must not send a JSON sort param (EIA 400)");
+  assert.equal(r.price.value, 24.11);         // latest period first (client-side sorted)
   assert.equal(r.price.period, "2025-02");
   assert.equal(r.source, "EIA API v2");
   assert.equal(r.series.length, 2);

@@ -25,9 +25,10 @@ export async function fetchEiaPrice(
   const path = q.fuel === "electricity"
     ? "/electricity/retail-sales/data/"
     : "/natural-gas/pri/sum/a_epg0_pcs_sil_dpmcf/data/"; // verify against live in Task 3
+  // NB: EIA rejects a JSON `sort` param (400); it wants sort[0][column]=…&sort[0][direction]=….
+  // We omit sort and order client-side by period desc instead — simpler and API-shape-agnostic.
   const params = new URLSearchParams({
     api_key: apiKey, frequency: "monthly", "data[0]": "price",
-    sort: JSON.stringify([{ column: "period", direction: "desc" }]) as any,
     length: "24",
   });
   // facets differ slightly by route; electricity uses stateid+sectorid.
@@ -40,7 +41,9 @@ export async function fetchEiaPrice(
   const json: any = await res.json();
   const rows: any[] = json?.response?.data ?? [];
   if (rows.length === 0) throw new Error(`EIA returned no data for ${q.fuel}/${q.region}/${q.sector}`);
-  const series = rows.map((d) => ({ period: String(d.period), value: Number(d.price) }));
+  const series = rows
+    .map((d) => ({ period: String(d.period), value: Number(d.price) }))
+    .sort((a, b) => b.period.localeCompare(a.period)); // latest period first
   const latest = series[0];
   return {
     fuel: q.fuel, sector: q.sector, region: q.region,
