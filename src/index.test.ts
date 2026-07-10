@@ -53,5 +53,6 @@ test("tools/list returns list_measures on a fresh request (no 502)", async () =>
   assert.equal(status, 200);
   const names = (body.result?.tools ?? []).map((t: any) => t.name);
   assert.ok(names.includes("list_measures"), `expected list_measures, got ${JSON.stringify(names)}`);
+  assert.ok(names.includes("get_energy_prices"), `expected get_energy_prices, got ${JSON.stringify(names)}`);
   server.close();
 });
