@@ -8,6 +8,7 @@ import { registerDerTools } from "./tools/der.js";
 import { registerMeasureCapexTools } from "./tools/measure-capex.js";
 import { registerReferenceTools } from "./tools/references.js";
 import { registerRegionalTools } from "./tools/regional.js";
+import { listMeasures } from "./sources/measures.js";
 
 const SERVER_NAME = "costing";
 const SERVER_VERSION = "0.1.0";
@@ -16,13 +17,21 @@ const SERVER_VERSION = "0.1.0";
 function registerTools(server: McpServer): void {
   server.tool(
     "list_measures",
-    "List the decarbonization/retrofit measures this costing service can price. v0 returns an empty taxonomy; measures are added in later releases.",
+    "List the decarbonization/retrofit measures this costing service can price, with each measure's category, kind, unit basis, and confidence.",
     {},
     async () => ({
       content: [
         {
           type: "text",
-          text: JSON.stringify({ measures: [], note: "taxonomy not yet loaded (v0 scaffold)" }),
+          text: JSON.stringify({
+            measures: listMeasures().map((m) => ({
+              measure_id: m.measure_id,
+              category: m.category,
+              measure_kind: m.measure_kind,
+              unit_basis: m.unit_basis,
+              confidence: m.confidence,
+            })),
+          }),
         },
       ],
     }),

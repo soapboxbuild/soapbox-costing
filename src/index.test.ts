@@ -62,3 +62,19 @@ test("tools/list returns list_measures on a fresh request (no 502)", async () =>
   assert.ok(names.includes("get_regional_factor"), `expected get_regional_factor, got ${JSON.stringify(names)}`);
   server.close();
 });
+
+test("list_measures returns the curated taxonomy, not the v0 empty stub", async () => {
+  const { server, port } = await listen();
+  await rpc(port, "initialize", {
+    protocolVersion: "2024-11-05", capabilities: {}, clientInfo: { name: "test", version: "1" },
+  }, 1);
+  const { status, body } = await rpc(port, "tools/call", { name: "list_measures", arguments: {} }, 2);
+  assert.equal(status, 200);
+  const payload = JSON.parse(body.result.content[0].text);
+  assert.ok(Array.isArray(payload.measures) && payload.measures.length > 0, `expected non-empty measures[], got ${JSON.stringify(payload)}`);
+  const chiller = payload.measures.find((m: any) => m.measure_id === "commercial-chiller");
+  assert.ok(chiller, `expected seeded id commercial-chiller in ${JSON.stringify(payload.measures)}`);
+  assert.equal(typeof chiller.category, "string");
+  assert.ok(chiller.category.length > 0);
+  server.close();
+});
