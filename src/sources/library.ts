@@ -91,14 +91,15 @@ export async function addReference(ref: Reference, opts: LibraryOpts = {}): Prom
   const f = opts.fetchImpl ?? (fetch as FetchLike);
   const tags = ["costing", "reference", ref.system_type];
   try {
-    const res = await f(`${url.replace(/\/$/, "")}/retain`, {
+    const res = await f(`${url.replace(/\/$/, "")}/v1/default/banks/${BANK_ID}/memories`, {
       method: "POST",
       headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
       body: JSON.stringify({
-        bank_id: BANK_ID,
-        content: JSON.stringify(ref),
-        tags,
-        context: `costing reference: ${ref.citation}`,
+        items: [{
+          content: JSON.stringify(ref),
+          tags,
+          context: `costing reference: ${ref.citation}`,
+        }],
       }),
     });
     if (!res.ok) {
@@ -131,10 +132,10 @@ export async function recallReferences(query: string, opts: LibraryOpts = {}): P
 
   const f = opts.fetchImpl ?? (fetch as FetchLike);
   try {
-    const res = await f(`${url.replace(/\/$/, "")}/recall`, {
+    const res = await f(`${url.replace(/\/$/, "")}/v1/default/banks/${BANK_ID}/memories/recall`, {
       method: "POST",
       headers: { "content-type": "application/json", authorization: `Bearer ${token}` },
-      body: JSON.stringify({ bank_id: BANK_ID, query }),
+      body: JSON.stringify({ query }),
     });
     if (!res.ok) {
       return { results: [], bank_synced: false, note: `hindsight recall returned HTTP ${res.status ?? "error"}.` };

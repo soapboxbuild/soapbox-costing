@@ -46,8 +46,10 @@ test("addReference appends to the register and posts a retain with costing/refer
   assert.equal(result.registered, true);
   assert.equal(result.bank_synced, true);
   assert.ok(calledUrl.includes("hindsight.test"), calledUrl);
-  assert.equal(calledBody.bank_id, "soapbox-costing");
-  assert.deepEqual(calledBody.tags, ["costing", "reference", "chillers"]);
+  // bank_id is in the REST path (POST /v1/default/banks/{bank}/memories), not the body.
+  assert.ok(calledUrl.includes("/v1/default/banks/soapbox-costing/memories"), calledUrl);
+  // RetainRequest wraps items[]; tags live on the MemoryItem.
+  assert.deepEqual(calledBody.items[0].tags, ["costing", "reference", "chillers"]);
 
   const onDisk = JSON.parse(readFileSync(registerPath, "utf-8"));
   assert.ok(onDisk.references.some((r: Reference) => r.id === "test-ref-2026"));
