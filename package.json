@@ -1,14 +1,15 @@
 {
   "name": "soapbox-costing-mcp",
   "version": "0.1.0",
-  "description": "Soapbox Costing MCP — construction CapEx, OpEx, DER, and electrical service-capacity cost estimates for building decarbonization measures.",
+  "description": "Soapbox Costing MCP \u2014 construction CapEx, OpEx, DER, and electrical service-capacity cost estimates for building decarbonization measures.",
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
     "dev": "tsx src/index.ts",
     "start": "node dist/index.js",
-    "test": "npm run build && node --test \"dist/**/*.test.js\""
+    "test": "npm run build && node --test \"dist/**/*.test.js\"",
+    "lint": "node scripts/lint-skill-costing.mjs && node scripts/lint-persona-costing.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.1",
