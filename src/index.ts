@@ -8,6 +8,7 @@ import { registerDerTools } from "./tools/der.js";
 import { registerMeasureCapexTools } from "./tools/measure-capex.js";
 import { registerReferenceTools } from "./tools/references.js";
 import { registerRegionalTools } from "./tools/regional.js";
+import { registerAddReferenceTools } from "./tools/add-reference.js";
 import { listMeasures } from "./sources/measures.js";
 
 const SERVER_NAME = "costing";
@@ -43,6 +44,7 @@ function registerTools(server: McpServer): void {
   registerMeasureCapexTools(server);
   registerReferenceTools(server);
   registerRegionalTools(server);
+  registerAddReferenceTools(server);
 }
 
 // A fresh McpServer per request — required for stateless Streamable HTTP.
