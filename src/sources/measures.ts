@@ -2,6 +2,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
 import { resolveReferences, type Reference } from "./references.js";
+import { getRegionalFactor, regionalize } from "./regional.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // dist/sources/measures.js -> ../../data/measures.json (repo-root data/, one level above dist/)
@@ -118,10 +119,11 @@ export function listMeasures(): Measure[] {
 }
 
 /**
- * Curated CapEx for a measure, escalated to the current year.
- * Task 1 scope: region/size are accepted for forward-compat with later tasks
- * (regional labour/material application, size-based lookups) but not yet applied
- * here — region_applied is always null and size is currently ignored.
+ * Curated CapEx for a measure, escalated to the current year and, if a region is
+ * given, regionalized: the labour factor applies to the labour share, the material
+ * factor to the material share, and the equipment share stays at national cost
+ * (see regional.ts#regionalize). size is accepted for forward-compat with later
+ * size-based lookups but not yet applied.
  */
 export function getMeasureCapex(query: MeasureCapexQuery): MeasureCapexResult {
   const data = load();
@@ -131,10 +133,19 @@ export function getMeasureCapex(query: MeasureCapexQuery): MeasureCapexResult {
     throw new Error(`Unknown measure_id "${query.measure_id}". Available ids: ${available}`);
   }
   const escalatedCapex = escalateAmounts(measure.capex, measure.escalation.base_year, CURRENT_YEAR);
+
+  let regionalCapex = escalatedCapex;
+  let regionApplied: string | null = null;
+  if (query.region) {
+    const factor = getRegionalFactor(query.region);
+    regionalCapex = regionalize(escalatedCapex, measure.cost_breakdown, factor);
+    regionApplied = factor.division;
+  }
+
   return {
     measure_id: measure.measure_id,
     unit_basis: measure.unit_basis,
-    capex: escalatedCapex,
+    capex: regionalCapex,
     cost_breakdown: measure.cost_breakdown,
     contingency_pct: measure.contingency_pct,
     escalation: { ...measure.escalation, escalated_to: CURRENT_YEAR },
@@ -142,7 +153,7 @@ export function getMeasureCapex(query: MeasureCapexQuery): MeasureCapexResult {
     confidence: measure.confidence,
     reference_ids: measure.reference_ids,
     references: resolveReferences(measure.reference_ids),
-    region_applied: null,
+    region_applied: regionApplied,
     notes: measure.notes,
   };
 }

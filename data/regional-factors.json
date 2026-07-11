@@ -1,0 +1,27 @@
+{
+  "note": "PLACEHOLDER-grade Census-division labour/material cost multipliers, BLS-informed (OEWS regional wage ratios for labour; PPI/RSMeans-style regional material indices for material), pending Christopher's tuning. national = 1.0/1.0 baseline. Applied per Plan 4: the labour factor multiplies the labour share of capex only, the material factor multiplies the material share only, equipment always stays at national cost.",
+  "basis": "Census division (BLS PPI/OEWS-informed placeholder)",
+  "divisions": {
+    "national": { "labour": 1.0, "material": 1.0 },
+    "New England": { "labour": 1.15, "material": 1.05 },
+    "Middle Atlantic": { "labour": 1.2, "material": 1.05 },
+    "East North Central": { "labour": 1.0, "material": 1.0 },
+    "West North Central": { "labour": 0.9, "material": 0.95 },
+    "South Atlantic": { "labour": 0.9, "material": 0.95 },
+    "East South Central": { "labour": 0.8, "material": 0.9 },
+    "West South Central": { "labour": 0.85, "material": 0.95 },
+    "Mountain": { "labour": 0.95, "material": 1.0 },
+    "Pacific": { "labour": 1.3, "material": 1.1 }
+  },
+  "state_to_division": {
+    "CT": "New England", "ME": "New England", "MA": "New England", "NH": "New England", "RI": "New England", "VT": "New England",
+    "NJ": "Middle Atlantic", "NY": "Middle Atlantic", "PA": "Middle Atlantic",
+    "IL": "East North Central", "IN": "East North Central", "MI": "East North Central", "OH": "East North Central", "WI": "East North Central",
+    "IA": "West North Central", "KS": "West North Central", "MN": "West North Central", "MO": "West North Central", "NE": "West North Central", "ND": "West North Central", "SD": "West North Central",
+    "DE": "South Atlantic", "DC": "South Atlantic", "FL": "South Atlantic", "GA": "South Atlantic", "MD": "South Atlantic", "NC": "South Atlantic", "SC": "South Atlantic", "VA": "South Atlantic", "WV": "South Atlantic",
+    "AL": "East South Central", "KY": "East South Central", "MS": "East South Central", "TN": "East South Central",
+    "AR": "West South Central", "LA": "West South Central", "OK": "West South Central", "TX": "West South Central",
+    "AZ": "Mountain", "CO": "Mountain", "ID": "Mountain", "MT": "Mountain", "NV": "Mountain", "NM": "Mountain", "UT": "Mountain", "WY": "Mountain",
+    "AK": "Pacific", "CA": "Pacific", "HI": "Pacific", "OR": "Pacific", "WA": "Pacific"
+  }
+}
