@@ -4,6 +4,7 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 import { registerEnergyPriceTools } from "./tools/energy-prices.js";
 import { registerTariffTools } from "./tools/tariff.js";
 import { registerServiceUpgradeTools } from "./tools/service-upgrade.js";
+import { registerDerTools } from "./tools/der.js";
 
 const SERVER_NAME = "costing";
 const SERVER_VERSION = "0.1.0";
@@ -26,6 +27,7 @@ function registerTools(server: McpServer): void {
   registerEnergyPriceTools(server);
   registerTariffTools(server);
   registerServiceUpgradeTools(server);
+  registerDerTools(server);
 }
 
 // A fresh McpServer per request — required for stateless Streamable HTTP.
