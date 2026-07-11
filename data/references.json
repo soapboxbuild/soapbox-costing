@@ -33,7 +33,7 @@
       "reported_range": "Heat-pump VRF ~$4,000/ton; heat-recovery VRF ~$5,000/ton installed",
       "unit_basis": "$/ton",
       "url": "https://vrfwizard.com/vrf-cost-per-ton/",
-      "license": "trade site — sanity band only, not a survey",
+      "license": "trade site \u2014 sanity band only, not a survey",
       "confidence": "low"
     },
     {
@@ -42,7 +42,7 @@
       "citation": "NEEP, \"Cold Climate ASHP Specification & Product List\" (v4.0)",
       "publisher": "Northeast Energy Efficiency Partnerships",
       "year": 2026,
-      "reported_range": "No installed-cost figures — performance/COP specification and product list only",
+      "reported_range": "No installed-cost figures \u2014 performance/COP specification and product list only",
       "unit_basis": "n/a (performance data)",
       "url": "https://neep.org/heating-electrification/ccashp-specification-product-list",
       "license": "NEEP resource, publicly accessible",
@@ -54,7 +54,7 @@
       "citation": "NREL, ComStock commercial building-stock model + Standard Dataset 2024 release (NREL/TP-fy25osti-92766)",
       "publisher": "National Renewable Energy Laboratory / DOE",
       "year": 2024,
-      "reported_range": "No installation costs published — team states cost depends on local labor/equipment/season/supply chain",
+      "reported_range": "No installation costs published \u2014 team states cost depends on local labor/equipment/season/supply chain",
       "unit_basis": "n/a",
       "url": "https://docs.nlr.gov/docs/fy25osti/92766.pdf",
       "license": "public (DOE/NREL); data CC-BY-style open",
@@ -66,7 +66,7 @@
       "citation": "Liu, Battocletti, et al., ORNL, \"GeoVision Analysis Supporting Task Force Report: Geothermal Heat Pumps\" (ORNL/TM-2019/502)",
       "publisher": "Oak Ridge National Laboratory / DOE",
       "year": 2019,
-      "reported_range": "Reports costs of typical commercial GHP systems; specific $/ton not extracted in this pass — flagged for ingest",
+      "reported_range": "Reports costs of typical commercial GHP systems; specific $/ton not extracted in this pass \u2014 flagged for ingest",
       "unit_basis": "$/ton (in report)",
       "url": "https://info.ornl.gov/sites/publications/Files/Pub103860.pdf",
       "license": "public domain (DOE/ORNL)",
@@ -81,7 +81,7 @@
       "reported_range": "Office $4,500-$7,500/ton; schools $3,800-$6,500/ton; residential avg ~$8,500/ton ($4,500-$12,500+); drilling/loop = 50-70% of vertical closed-loop cost",
       "unit_basis": "$/ton",
       "url": "https://geothermalfinder.com/costs/geothermal-installation-cost-by-state/",
-      "license": "trade sites — sanity band only",
+      "license": "trade sites \u2014 sanity band only",
       "confidence": "low"
     },
     {
@@ -111,14 +111,14 @@
     {
       "id": "nescaum-hpwh",
       "system_type": "hpwh",
-      "citation": "NESCAUM, \"Heat Pump Water Heaters in the Northeast and Mid-Atlantic — Costs and Market Trends\"",
-      "publisher": "NESCAUM",
-      "year": 2026,
-      "reported_range": "Regional installed-cost + market-trend analysis; figures in PDF",
-      "unit_basis": "$/unit (in report)",
+      "citation": "NESCAUM/OTC (Energy Solutions), \"Heat Pump Water Heaters in the Northeast and Mid-Atlantic: Costs and Market Trends\", June 17, 2024",
+      "publisher": "NESCAUM / Ozone Transport Commission (prepared by Energy Solutions)",
+      "year": 2024,
+      "reported_range": "Residential single-family, 13 NE/Mid-Atlantic jurisdictions, base 2023$ (RS Means state-indexed off US-average). Installed (equip+labor): 240V HPWH $3,152 avg no-panel ($2,756 VA - $3,904 NY), $5,427 avg with panel upgrade ($4,375 - $7,533); 120V HPWH $3,392 avg ($3,149 - $3,804). Equipment $1,837 (240V, CA eTRM) / $2,630 (120V, NBI); panel-upgrade adder $2,275 (TECH Clean CA). Incremental vs gas/electric storage +$2,270-2,290. Costs conservative -- DOE-TSD-based, 2021-23 inflation not factored (escalation to 2026 compensates).",
+      "unit_basis": "$/unit installed",
       "url": "https://www.nescaum.org/documents/Heat-Pump-Water-Heaters-in-the-Northeast-and-Mid-Atlantic---Costs-and-Market-Trends.pdf",
       "license": "NESCAUM report, publicly posted",
-      "confidence": "medium"
+      "confidence": "high"
     },
     {
       "id": "neea-pricing-water-heaters-2022",
@@ -150,7 +150,7 @@
       "citation": "RMI (Rocky Mountain Institute), \"Heat Pumps for Hot Water: Installed Costs in New Homes\"",
       "publisher": "Rocky Mountain Institute",
       "year": 2020,
-      "reported_range": "Installed-cost analysis — residential/new-home scope (not commercial/MF)",
+      "reported_range": "Installed-cost analysis \u2014 residential/new-home scope (not commercial/MF)",
       "unit_basis": "$/unit (in report)",
       "url": "https://rmi.org/wp-content/uploads/2020/07/heat_pump_water_heater.pdf",
       "license": "RMI, publicly posted",
@@ -171,7 +171,7 @@
     {
       "id": "doe-bto-schools-chiller-2022",
       "system_type": "chillers",
-      "citation": "DOE BTO, \"Schools Chiller Replacement Package — Performance Requirements, Savings and Costs\" (Aug 2022)",
+      "citation": "DOE BTO, \"Schools Chiller Replacement Package \u2014 Performance Requirements, Savings and Costs\" (Aug 2022)",
       "publisher": "DOE Building Technologies Office",
       "year": 2022,
       "reported_range": "Performance-spec package with savings + cost data for chiller replacement; figures in PDF",
@@ -189,7 +189,7 @@
       "reported_range": "Small commercial (0.3-1.0 MMBtu) $18k-$34k installed (+$6k-$10k condensing upgrade); mid (1-3 MMBtu) $34k-$58k; large (>3 MMBtu) $58k-$95k",
       "unit_basis": "$/unit",
       "url": "https://oxmaint.com/industries/hvac/boiler-replacement-cost-2026-commercial-pricing-btu-fuel-efficiency",
-      "license": "trade site — sanity band only",
+      "license": "trade site \u2014 sanity band only",
       "confidence": "low"
     },
     {
@@ -243,7 +243,7 @@
     {
       "id": "ced-dcv-guide",
       "system_type": "ventilation",
-      "citation": "CED Engineering, \"HVAC — Guide to Demand Control Ventilation\" (course monograph)",
+      "citation": "CED Engineering, \"HVAC \u2014 Guide to Demand Control Ventilation\" (course monograph)",
       "publisher": "CED Engineering",
       "year": 2015,
       "reported_range": "DCV adds ~$1-$3 per cfm of outside air; CO2 sensors now <$200 (was >$500 a decade ago); avg savings ~38%",
@@ -273,7 +273,7 @@
       "reported_range": "Commercial/multi-zone ERV/HRV $4,000-$20,000+ per unit (unit-only 500+ cfm: $4k-$15k)",
       "unit_basis": "$/unit",
       "url": "https://www.pickcomfort.com/energy-recovery-ventilator-price-typical-costs-ranges/",
-      "license": "trade sites — sanity band only",
+      "license": "trade sites \u2014 sanity band only",
       "confidence": "low"
     },
     {
@@ -282,7 +282,7 @@
       "citation": "DOE Uniform Methods Project (UMP), \"Chapter 18: Variable Frequency Drive Evaluation Protocol\"",
       "publisher": "DOE",
       "year": 2015,
-      "reported_range": "Authoritative M&V protocol (not a cost survey) — defines savings/cost accounting for VFD measures",
+      "reported_range": "Authoritative M&V protocol (not a cost survey) \u2014 defines savings/cost accounting for VFD measures",
       "unit_basis": "n/a (methodology)",
       "url": "https://www.energy.gov/sites/prod/files/2015/01/f19/UMPChapter18-variable-frequency-drive.pdf",
       "license": "public domain (DOE)",
@@ -309,7 +309,7 @@
       "reported_range": "Utility prescriptive rebates $80-$250 per HP (incentive, not install cost); example 75 HP install $12k-$18k; small <=5 HP drives $150-$1,000",
       "unit_basis": "$/HP",
       "url": "https://eilitetech.com/vfd-for-hvac-systems/",
-      "license": "trade site — sanity band only",
+      "license": "trade site \u2014 sanity band only",
       "confidence": "low"
     },
     {
@@ -339,7 +339,7 @@
     {
       "id": "doe-femp-om-rcx",
       "system_type": "rcx",
-      "citation": "DOE FEMP, \"O&M Best Practices Guide, Ch. 7 — Commissioning Existing Buildings\"",
+      "citation": "DOE FEMP, \"O&M Best Practices Guide, Ch. 7 \u2014 Commissioning Existing Buildings\"",
       "publisher": "DOE Federal Energy Management Program",
       "year": 2026,
       "reported_range": "RCx cost/benefit framing for federal facilities; no standalone $ figure",
@@ -393,7 +393,7 @@
       "reported_range": "Commercial LED retrofit ~$0.50-$5.00/ft2 installed; controls (occupancy + daylight) raise rebate 20-40%",
       "unit_basis": "$/ft2",
       "url": "https://hireelectrical.com/guides/commercial-led-lighting-retrofit-cost/",
-      "license": "trade site — sanity band only",
+      "license": "trade site \u2014 sanity band only",
       "confidence": "low"
     },
     {
@@ -402,7 +402,7 @@
       "citation": "DesignLights Consortium (DLC), Qualified Products List",
       "publisher": "DesignLights Consortium",
       "year": 2026,
-      "reported_range": "Performance/eligibility data, not installed cost — required for most utility rebates",
+      "reported_range": "Performance/eligibility data, not installed cost \u2014 required for most utility rebates",
       "unit_basis": "n/a",
       "url": "https://www.designlights.org/",
       "license": "DLC listing",
@@ -431,6 +431,18 @@
       "url": "https://repository.lib.ncsu.edu/items/d6963244-b3f7-4051-b1f9-e7650a7463a8",
       "license": "academic repository",
       "confidence": "medium"
+    },
+    {
+      "id": "nescaum-hp",
+      "system_type": "ashp,awhp",
+      "citation": "NESCAUM/OTC (Energy Solutions), \"Heat Pumps in the Northeast and Mid-Atlantic: Costs and Market Trends\", October 30, 2024",
+      "publisher": "NESCAUM / Ozone Transport Commission (prepared by Energy Solutions)",
+      "year": 2024,
+      "reported_range": "Residential whole-home ASHP/AWHP, 13 NE/Mid-Atlantic jurisdictions, base 2024$ (Sticky-Price-CPI inflated; RS Means state-indexed off US-average), normalized to 65 kBtu/h. Total installed (Table 20/21 US-average, excl->incl new distribution, no-panel->panel): split unitary $9,392-$13,530; packaged unitary $10,216-$14,353; ducted 1-zone mini-split $13,546-$17,684; ductless 3-zone multi-split $15,818-$18,170; AWHP $52,252-$58,411. Headline ASHP total $12k-$23k vs fossil+AC $10k-$13k. Panel adder ~$2,351, new-duct adder ~$4,500; existing-duct 40% / existing-hydronic 60% labour discount. Cross-checked to MassCEC Whole-Home Pilot (2019-21) & Mass Save actuals (MA-specific, higher). Multifamily explicitly excluded from source scope; per-state cells are image-only in the PDF (US-average cells OCR-extracted).",
+      "unit_basis": "$/unit installed",
+      "url": "https://www.nescaum.org/documents/Heat-Pumps-in-the-Northeast-and-Mid-Atlantic---Costs-and-Market-Trends.pdf",
+      "license": "NESCAUM report, publicly posted",
+      "confidence": "high"
     }
   ]
 }
