@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import path from "node:path";
+import { resolveReferences, type Reference } from "./references.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 // dist/sources/measures.js -> ../../data/measures.json (repo-root data/, one level above dist/)
@@ -55,6 +56,7 @@ export interface MeasureCapexResult {
   source: string;
   confidence: "high" | "medium" | "low";
   reference_ids: string[];
+  references: Reference[];
   region_applied: string | null;
   notes?: string;
 }
@@ -139,6 +141,7 @@ export function getMeasureCapex(query: MeasureCapexQuery): MeasureCapexResult {
     source: `curated seed (${measure.reference_ids.join(", ")})`,
     confidence: measure.confidence,
     reference_ids: measure.reference_ids,
+    references: resolveReferences(measure.reference_ids),
     region_applied: null,
     notes: measure.notes,
   };

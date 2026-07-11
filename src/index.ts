@@ -6,6 +6,7 @@ import { registerTariffTools } from "./tools/tariff.js";
 import { registerServiceUpgradeTools } from "./tools/service-upgrade.js";
 import { registerDerTools } from "./tools/der.js";
 import { registerMeasureCapexTools } from "./tools/measure-capex.js";
+import { registerReferenceTools } from "./tools/references.js";
 
 const SERVER_NAME = "costing";
 const SERVER_VERSION = "0.1.0";
@@ -30,6 +31,7 @@ function registerTools(server: McpServer): void {
   registerServiceUpgradeTools(server);
   registerDerTools(server);
   registerMeasureCapexTools(server);
+  registerReferenceTools(server);
 }
 
 // A fresh McpServer per request — required for stateless Streamable HTTP.

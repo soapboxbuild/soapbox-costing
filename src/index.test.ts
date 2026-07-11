@@ -58,5 +58,6 @@ test("tools/list returns list_measures on a fresh request (no 502)", async () =>
   assert.ok(names.includes("estimate_service_upgrade"), `expected estimate_service_upgrade, got ${JSON.stringify(names)}`);
   assert.ok(names.includes("get_der_economics"), `expected get_der_economics, got ${JSON.stringify(names)}`);
   assert.ok(names.includes("get_measure_capex"), `expected get_measure_capex, got ${JSON.stringify(names)}`);
+  assert.ok(names.includes("get_references"), `expected get_references, got ${JSON.stringify(names)}`);
   server.close();
 });
