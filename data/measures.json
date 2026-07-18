@@ -6,13 +6,33 @@
       "measure_kind": "fuel_switch",
       "category": "hvac_heating",
       "unit_basis": "$/unit",
-      "archetypes": ["office", "multifamily", "logistics", "retail"],
-      "capex": { "low": 4000, "base": 4990, "high": 5980 },
-      "cost_breakdown": { "material": 0.5, "labour": 0.4, "equipment": 0.1 },
+      "archetypes": [
+        "office",
+        "multifamily",
+        "logistics",
+        "retail"
+      ],
+      "capex": {
+        "low": 4000,
+        "base": 4990,
+        "high": 5980
+      },
+      "cost_breakdown": {
+        "material": 0.5,
+        "labour": 0.4,
+        "equipment": 0.1
+      },
       "contingency_pct": 0.15,
-      "escalation": { "base_year": 2022, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2022,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "high",
-      "reference_ids": ["eia-equipment-2022"],
+      "reference_ids": [
+        "eia-equipment-2022"
+      ],
       "notes": "EIA Updated Buildings Sector Equipment Costs 2023 (base 2022$), commercial rooftop heat pump tiers, Appendix A. Per-unit total installed cost, PRIMARY-EXTRACTED."
     },
     {
@@ -20,13 +40,31 @@
       "measure_kind": "efficiency_upgrade",
       "category": "hvac_heating",
       "unit_basis": "$/ft2",
-      "archetypes": ["office", "multifamily"],
-      "capex": { "low": 15, "base": 18, "high": 21 },
-      "cost_breakdown": { "material": 0.5, "labour": 0.45, "equipment": 0.05 },
+      "archetypes": [
+        "office",
+        "multifamily"
+      ],
+      "capex": {
+        "low": 15,
+        "base": 18,
+        "high": 21
+      },
+      "cost_breakdown": {
+        "material": 0.5,
+        "labour": 0.45,
+        "equipment": 0.05
+      },
       "contingency_pct": 0.2,
-      "escalation": { "base_year": 2016, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2016,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "medium",
-      "reference_ids": ["aceee-vrf-2016"],
+      "reference_ids": [
+        "aceee-vrf-2016"
+      ],
       "notes": "ACEEE Summer Study 2016 paper 3-345: VRF ~$18/ft2 vs code-min baseline $12-15/ft2 (PRIMARY-DOC/summary). low/high derived as a +/-3 spread around the reported $18/ft2 anchor (no explicit VRF-specific range in source) -- tuned-base band, flag for tightening against a real VRF-specific range."
     },
     {
@@ -34,13 +72,32 @@
       "measure_kind": "fuel_switch",
       "category": "hvac_heating",
       "unit_basis": "$/ton",
-      "archetypes": ["office", "multifamily", "schools"],
-      "capex": { "low": 4500, "base": 6000, "high": 7500 },
-      "cost_breakdown": { "material": 0.35, "labour": 0.35, "equipment": 0.3 },
+      "archetypes": [
+        "office",
+        "multifamily",
+        "schools"
+      ],
+      "capex": {
+        "low": 4500,
+        "base": 6000,
+        "high": 7500
+      },
+      "cost_breakdown": {
+        "material": 0.35,
+        "labour": 0.35,
+        "equipment": 0.3
+      },
       "contingency_pct": 0.25,
-      "escalation": { "base_year": 2025, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2025,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "low",
-      "reference_ids": ["geothermalfinder-gshp-2025"],
+      "reference_ids": [
+        "geothermalfinder-gshp-2025"
+      ],
       "notes": "SECONDARY sanity-band only (GeothermalFinder/EnergySage 2025-26 guides), office tier $4,500-7,500/ton (loop drilling = 50-70% of vertical closed-loop cost). EIA (2022$) and ORNL GeoVision (2019, ORNL/TM-2019/502) carry authoritative commercial GSHP figures, but a specific $/ton was not extracted from those PDFs in this pass -- flagged for ingest. source: tuned-base."
     },
     {
@@ -48,13 +105,33 @@
       "measure_kind": "efficiency_upgrade",
       "category": "hvac_cooling",
       "unit_basis": "$/ton",
-      "archetypes": ["office", "multifamily", "logistics", "lab"],
-      "capex": { "low": 440, "base": 915, "high": 1390 },
-      "cost_breakdown": { "material": 0.55, "labour": 0.35, "equipment": 0.1 },
+      "archetypes": [
+        "office",
+        "multifamily",
+        "logistics",
+        "lab"
+      ],
+      "capex": {
+        "low": 440,
+        "base": 915,
+        "high": 1390
+      },
+      "cost_breakdown": {
+        "material": 0.55,
+        "labour": 0.35,
+        "equipment": 0.1
+      },
       "contingency_pct": 0.15,
-      "escalation": { "base_year": 2022, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2022,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "high",
-      "reference_ids": ["eia-equipment-2022"],
+      "reference_ids": [
+        "eia-equipment-2022"
+      ],
       "notes": "EIA 2023 study, base 2022$, centrifugal/screw/scroll chillers, $440-1390/ton total installed across capacity/efficiency tiers, PRIMARY-EXTRACTED. Underlying per-unit values are derived from proprietary RSMeans 2023 + Guidehouse; citing only EIA's published aggregation (public domain)."
     },
     {
@@ -62,27 +139,75 @@
       "measure_kind": "efficiency_upgrade",
       "category": "hvac_heating",
       "unit_basis": "$/unit",
-      "archetypes": ["office", "multifamily"],
-      "capex": { "low": 34000, "base": 46000, "high": 58000 },
-      "cost_breakdown": { "material": 0.5, "labour": 0.4, "equipment": 0.1 },
+      "archetypes": [
+        "office",
+        "multifamily"
+      ],
+      "capex": {
+        "low": 34000,
+        "base": 46000,
+        "high": 58000
+      },
+      "cost_breakdown": {
+        "material": 0.5,
+        "labour": 0.4,
+        "equipment": 0.1
+      },
       "contingency_pct": 0.25,
-      "escalation": { "base_year": 2026, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2026,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "low",
-      "reference_ids": ["oxmaint-boiler-2026"],
-      "notes": "SECONDARY trade sanity band (Oxmaint 2026), mid-size commercial condensing boiler (1-3 MMBtu) installed cost. EIA carries an authoritative per-unit boiler figure in its Appendix A ('Commercial Gas-Fired Boilers'), but the specific $/unit was not extracted in this pass -- flagged for ingest. source: tuned-base."
+      "reference_ids": [
+        "oxmaint-boiler-2026"
+      ],
+      "notes": "SECONDARY trade sanity band (Oxmaint 2026), mid-size commercial condensing boiler (1-3 MMBtu) installed cost. EIA carries an authoritative per-unit boiler figure in its Appendix A ('Commercial Gas-Fired Boilers'), but the specific $/unit was not extracted in this pass -- flagged for ingest. source: tuned-base.",
+      "like_for_like": {
+        "capex": {
+          "low": 28000,
+          "base": 38000,
+          "high": 48000
+        },
+        "basis": "standard non-condensing commercial gas boiler (code-minimum replacement)",
+        "reference_ids": [
+          "oxmaint-boiler-2026"
+        ],
+        "note": "Oxmaint 2026 reports a condensing upgrade premium of ~$6-10K/unit over a standard replacement; like-for-like = condensing base - that premium, so incremental (premium only) = ~$6/8/10K per unit. Apply the incremental as the CapEx basis ONLY when the existing boiler is at/near end-of-life (per the asset's Audette RUL); for a healthy boiler the full capex is incremental."
+      }
     },
     {
       "measure_id": "commercial-rtu-controls",
       "measure_kind": "controls_retrofit",
       "category": "hvac_controls",
       "unit_basis": "$/RTU",
-      "archetypes": ["office", "retail"],
-      "capex": { "low": 1560, "base": 2275, "high": 2990 },
-      "cost_breakdown": { "material": 0.6, "labour": 0.35, "equipment": 0.05 },
+      "archetypes": [
+        "office",
+        "retail"
+      ],
+      "capex": {
+        "low": 1560,
+        "base": 2275,
+        "high": 2990
+      },
+      "cost_breakdown": {
+        "material": 0.6,
+        "labour": 0.35,
+        "equipment": 0.05
+      },
       "contingency_pct": 0.15,
-      "escalation": { "base_year": 2012, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2012,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "high",
-      "reference_ids": ["pnnl-21944-rtu-controls-2012"],
+      "reference_ids": [
+        "pnnl-21944-rtu-controls-2012"
+      ],
       "notes": "PNNL-21944 (Oct 2012, DOE Contract DE-AC05-76RL01830), office-building scenario: maximum installed controller cost per packaged unit yielding a 3-yr payback, $1,560-2,990/RTU, PRIMARY-EXTRACTED. These are 'max acceptable for 3-yr payback' figures, not mean market bid prices -- treat as an upper-bound-anchored band; retail-building tier ($4,180-8,390/RTU) was not seeded separately."
     },
     {
@@ -90,13 +215,33 @@
       "measure_kind": "controls_retrofit",
       "category": "controls_bas",
       "unit_basis": "$/ft2",
-      "archetypes": ["office", "multifamily", "retail", "logistics"],
-      "capex": { "low": 0.05, "base": 0.3, "high": 0.4 },
-      "cost_breakdown": { "material": 0.1, "labour": 0.85, "equipment": 0.05 },
+      "archetypes": [
+        "office",
+        "multifamily",
+        "retail",
+        "logistics"
+      ],
+      "capex": {
+        "low": 0.05,
+        "base": 0.3,
+        "high": 0.4
+      },
+      "cost_breakdown": {
+        "material": 0.1,
+        "labour": 0.85,
+        "equipment": 0.05
+      },
       "contingency_pct": 0.2,
-      "escalation": { "base_year": 2009, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2009,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "high",
-      "reference_ids": ["lbnl-rcx-2009"],
+      "reference_ids": [
+        "lbnl-rcx-2009"
+      ],
       "notes": "LBNL (Mills, Building Commissioning: A Golden Opportunity, 2009), existing-buildings RCx: median ~$0.30/ft2, range $0.05-0.40/ft2, PRIMARY-DOC/summary, 2009$. ~16% energy savings, payback ~1.1yr reported alongside."
     },
     {
@@ -104,13 +249,30 @@
       "measure_kind": "controls_retrofit",
       "category": "lab_ventilation",
       "unit_basis": "$/hood",
-      "archetypes": ["lab"],
-      "capex": { "low": 4800, "base": 6000, "high": 7200 },
-      "cost_breakdown": { "material": 0.6, "labour": 0.35, "equipment": 0.05 },
+      "archetypes": [
+        "lab"
+      ],
+      "capex": {
+        "low": 4800,
+        "base": 6000,
+        "high": 7200
+      },
+      "cost_breakdown": {
+        "material": 0.6,
+        "labour": 0.35,
+        "equipment": 0.05
+      },
       "contingency_pct": 0.25,
-      "escalation": { "base_year": 2006, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2006,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "medium",
-      "reference_ids": ["lbnl-fumehood-2006"],
+      "reference_ids": [
+        "lbnl-fumehood-2006"
+      ],
       "notes": "LBNL Mills & Sartor, Energy Use and Savings Potential for Laboratory Fume Hoods (OSTI 862161, 2006): CAV->VAV retrofit ~$6,000/hood, mid-2000s $, PRIMARY-DOC/summary; retrofit kits reported at 10-20% of a new hood's cost. low/high derived as a +/-20% band around the reported $6,000 anchor (source gives a single point figure) -- tuned-base band."
     },
     {
@@ -118,13 +280,33 @@
       "measure_kind": "envelope_upgrade",
       "category": "envelope",
       "unit_basis": "$/ft2 roof",
-      "archetypes": ["office", "multifamily", "retail", "logistics"],
-      "capex": { "low": 10.25, "base": 15, "high": 20 },
-      "cost_breakdown": { "material": 0.55, "labour": 0.4, "equipment": 0.05 },
+      "archetypes": [
+        "office",
+        "multifamily",
+        "retail",
+        "logistics"
+      ],
+      "capex": {
+        "low": 10.25,
+        "base": 15,
+        "high": 20
+      },
+      "cost_breakdown": {
+        "material": 0.55,
+        "labour": 0.4,
+        "equipment": 0.05
+      },
       "contingency_pct": 0.2,
-      "escalation": { "base_year": 2015, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2015,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "low",
-      "reference_ids": ["doe-building-america-roof-airseal"],
+      "reference_ids": [
+        "doe-building-america-roof-airseal"
+      ],
       "notes": "DOE Building America, Cost Analysis of Roof-Only Air Sealing and Insulation Strategies: roof air-seal+insulation to R-20 ~$10.25-20/ft2 roof area, PRIMARY-DOC/summary. Source scope is RESIDENTIAL; applied here as a commercial tuned-base proxy pending a commercial-specific envelope survey. Base year is not explicitly stated in the source; a conservative 2015 Building America-era vintage is assumed pending verification -- flag."
     },
     {
@@ -132,13 +314,33 @@
       "measure_kind": "lighting_upgrade",
       "category": "lighting",
       "unit_basis": "$/ft2",
-      "archetypes": ["office", "retail", "multifamily", "logistics"],
-      "capex": { "low": 0.5, "base": 2.0, "high": 5.0 },
-      "cost_breakdown": { "material": 0.6, "labour": 0.35, "equipment": 0.05 },
+      "archetypes": [
+        "office",
+        "retail",
+        "multifamily",
+        "logistics"
+      ],
+      "capex": {
+        "low": 0.5,
+        "base": 2.0,
+        "high": 5.0
+      },
+      "cost_breakdown": {
+        "material": 0.6,
+        "labour": 0.35,
+        "equipment": 0.05
+      },
       "contingency_pct": 0.25,
-      "escalation": { "base_year": 2026, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2026,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "low",
-      "reference_ids": ["hireelectrical-led-2026"],
+      "reference_ids": [
+        "hireelectrical-led-2026"
+      ],
       "notes": "SECONDARY trade guide (HireElectrical / National Efficiency Supply 2026), commercial LED retrofit $0.50-5.00/ft2. No authoritative redistributable commercial LED $/ft2 survey was found in this research pass (DOE SSL/CALiPER, GSA Green Proving Ground, and utility TRMs are flagged for future ingest). source: tuned-base."
     },
     {
@@ -146,13 +348,33 @@
       "measure_kind": "controls_retrofit",
       "category": "hvac_controls",
       "unit_basis": "$/HP",
-      "archetypes": ["office", "multifamily", "logistics", "lab"],
-      "capex": { "low": 160, "base": 200, "high": 240 },
-      "cost_breakdown": { "material": 0.65, "labour": 0.3, "equipment": 0.05 },
+      "archetypes": [
+        "office",
+        "multifamily",
+        "logistics",
+        "lab"
+      ],
+      "capex": {
+        "low": 160,
+        "base": 200,
+        "high": 240
+      },
+      "cost_breakdown": {
+        "material": 0.65,
+        "labour": 0.3,
+        "equipment": 0.05
+      },
       "contingency_pct": 0.25,
-      "escalation": { "base_year": 2026, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2026,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "low",
-      "reference_ids": ["eilitetech-vfd-2026"],
+      "reference_ids": [
+        "eilitetech-vfd-2026"
+      ],
       "notes": "SECONDARY trade guide (eilitetech), example 75HP VFD install $12k-18k implies ~$160-240/HP. The $80-250/HP figure elsewhere in the source is a utility prescriptive REBATE, not an install cost, and was deliberately excluded. No authoritative installed-cost survey was found; DOE UMP Ch.18 is an M&V protocol, not a cost source. source: tuned-base."
     },
     {
@@ -160,13 +382,33 @@
       "measure_kind": "ventilation_upgrade",
       "category": "ventilation",
       "unit_basis": "$/cfm OA",
-      "archetypes": ["office", "multifamily", "retail", "lab"],
-      "capex": { "low": 1, "base": 2, "high": 3 },
-      "cost_breakdown": { "material": 0.55, "labour": 0.4, "equipment": 0.05 },
+      "archetypes": [
+        "office",
+        "multifamily",
+        "retail",
+        "lab"
+      ],
+      "capex": {
+        "low": 1,
+        "base": 2,
+        "high": 3
+      },
+      "cost_breakdown": {
+        "material": 0.55,
+        "labour": 0.4,
+        "equipment": 0.05
+      },
       "contingency_pct": 0.2,
-      "escalation": { "base_year": 2015, "index": "BLS PPI construction", "index_vintage": "2026-06", "escalated_to": 2026 },
+      "escalation": {
+        "base_year": 2015,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
       "confidence": "medium",
-      "reference_ids": ["ced-dcv-guide"],
+      "reference_ids": [
+        "ced-dcv-guide"
+      ],
       "notes": "CED Engineering, HVAC -- Guide to Demand Control Ventilation (course monograph, PRIMARY-DOC/summary): DCV adds ~$1-3/cfm of outside air; CO2 sensors now <$200 (was >$500 a decade ago). Base year not stated in source; conservatively dated 2015 pending verification -- flag. ERV/HRV per-unit costs ($4k-20k+/unit, SECONDARY sanity band only, no clean $/cfm survey) were not seeded separately; utility TRMs (IL, CA DEER, NY) are the recommended authoritative substitute per the research doc."
     }
   ]

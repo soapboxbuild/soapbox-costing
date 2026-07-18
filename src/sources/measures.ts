@@ -24,6 +24,17 @@ export interface EscalationStamp {
   index_vintage: string;
   escalated_to: number;
 }
+// For end-of-life REPLACEMENT measures (e.g. a condensing boiler swapped in for a dying standard
+// boiler): the code-minimum "like-for-like" replacement the owner would install anyway. Only the
+// delta (capex − like_for_like) is the true decarbonization increment. Consumers should apply the
+// like-for-like credit ONLY when the existing equipment is at/near end-of-life (from the asset's
+// equipment survey / RUL) — for a healthy unit the full capex is incremental.
+export interface LikeForLike {
+  capex: MeasureCapexAmounts; // baseline (code-minimum) replacement cost, same unit_basis as the measure
+  basis: string; // what the like-for-like is, e.g. "standard non-condensing gas boiler"
+  reference_ids?: string[];
+  note?: string;
+}
 export interface Measure {
   measure_id: string;
   measure_kind: string;
@@ -36,6 +47,7 @@ export interface Measure {
   escalation: EscalationStamp;
   confidence: "high" | "medium" | "low";
   reference_ids: string[];
+  like_for_like?: LikeForLike;
   notes?: string;
 }
 export interface MeasuresFile {
@@ -59,6 +71,12 @@ export interface MeasureCapexResult {
   reference_ids: string[];
   references: Reference[];
   region_applied: string | null;
+  // Present only for end-of-life-replacement measures that define a like_for_like baseline.
+  // like_for_like = the code-minimum replacement incurred regardless; incremental = capex − like_for_like
+  // (the true decarbonization premium). Apply the credit only when the existing unit is at end-of-life.
+  like_for_like?: MeasureCapexAmounts;
+  incremental?: MeasureCapexAmounts;
+  like_for_like_basis?: string;
   notes?: string;
 }
 
@@ -142,6 +160,22 @@ export function getMeasureCapex(query: MeasureCapexQuery): MeasureCapexResult {
     regionApplied = factor.division;
   }
 
+  // Like-for-like baseline (end-of-life-replacement measures): escalate + regionalize it the same way,
+  // then the incremental (decarbonization premium) is capex − like_for_like at each low/base/high point.
+  let likeForLike: MeasureCapexAmounts | undefined;
+  let incremental: MeasureCapexAmounts | undefined;
+  if (measure.like_for_like) {
+    let lfl = escalateAmounts(measure.like_for_like.capex, measure.escalation.base_year, CURRENT_YEAR);
+    if (query.region) lfl = regionalize(lfl, measure.cost_breakdown, getRegionalFactor(query.region));
+    const r = (n: number) => Math.round(n * 100) / 100;
+    likeForLike = lfl;
+    incremental = {
+      low: r(regionalCapex.low - lfl.low),
+      base: r(regionalCapex.base - lfl.base),
+      high: r(regionalCapex.high - lfl.high),
+    };
+  }
+
   return {
     measure_id: measure.measure_id,
     unit_basis: measure.unit_basis,
@@ -154,6 +188,7 @@ export function getMeasureCapex(query: MeasureCapexQuery): MeasureCapexResult {
     reference_ids: measure.reference_ids,
     references: resolveReferences(measure.reference_ids),
     region_applied: regionApplied,
+    ...(likeForLike ? { like_for_like: likeForLike, incremental, like_for_like_basis: measure.like_for_like?.basis } : {}),
     notes: measure.notes,
   };
 }
