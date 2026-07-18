@@ -164,7 +164,19 @@
       "reference_ids": [
         "oxmaint-boiler-2026"
       ],
-      "notes": "SECONDARY trade sanity band (Oxmaint 2026), mid-size commercial condensing boiler (1-3 MMBtu) installed cost. EIA carries an authoritative per-unit boiler figure in its Appendix A ('Commercial Gas-Fired Boilers'), but the specific $/unit was not extracted in this pass -- flagged for ingest. source: tuned-base."
+      "notes": "SECONDARY trade sanity band (Oxmaint 2026), mid-size commercial condensing boiler (1-3 MMBtu) installed cost. EIA carries an authoritative per-unit boiler figure in its Appendix A ('Commercial Gas-Fired Boilers'), but the specific $/unit was not extracted in this pass -- flagged for ingest. source: tuned-base.",
+      "like_for_like": {
+        "capex": {
+          "low": 28000,
+          "base": 38000,
+          "high": 48000
+        },
+        "basis": "standard non-condensing commercial gas boiler (code-minimum replacement)",
+        "reference_ids": [
+          "oxmaint-boiler-2026"
+        ],
+        "note": "Oxmaint 2026 reports a condensing upgrade premium of ~$6-10K/unit over a standard replacement; like-for-like = condensing base - that premium, so incremental (premium only) = ~$6/8/10K per unit. Apply the incremental as the CapEx basis ONLY when the existing boiler is at/near end-of-life (per the asset's Audette RUL); for a healthy boiler the full capex is incremental."
+      }
     },
     {
       "measure_id": "commercial-rtu-controls",
