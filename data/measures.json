@@ -410,6 +410,223 @@
         "ced-dcv-guide"
       ],
       "notes": "CED Engineering, HVAC -- Guide to Demand Control Ventilation (course monograph, PRIMARY-DOC/summary): DCV adds ~$1-3/cfm of outside air; CO2 sensors now <$200 (was >$500 a decade ago). Base year not stated in source; conservatively dated 2015 pending verification -- flag. ERV/HRV per-unit costs ($4k-20k+/unit, SECONDARY sanity band only, no clean $/cfm survey) were not seeded separately; utility TRMs (IL, CA DEER, NY) are the recommended authoritative substitute per the research doc."
+    },
+    {
+      "measure_id": "mf-inunit-hpwh-240v",
+      "measure_kind": "fuel_switch",
+      "category": "dhw",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily"
+      ],
+      "capex": {
+        "low": 3152,
+        "base": 3152,
+        "high": 5427
+      },
+      "cost_breakdown": {
+        "material": 0.0,
+        "labour": 0.42,
+        "equipment": 0.58
+      },
+      "contingency_pct": 0.2,
+      "escalation": {
+        "base_year": 2023,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "nescaum-hpwh"
+      ],
+      "notes": "In-unit multifamily 240V heat-pump water heater (45-55 gal, UEF 3.3), installed. NESCAUM/Energy Solutions 2024, base 2023$, US-average (index-100) rows: equipment $1,837 (CA eTRM) + labor $1,314 = installed $3,152 WITHOUT panel upgrade (low/base); WITH panel upgrade installed $5,427 (high). Panel-upgrade adder ~$2,275 (TECH Clean CA; NV5 $2,000-4,500 band) hits only ~8% of SF installs but more often in older NE stock -- carried as the high bound. Regionalize via region arg (state spread is labour-driven). Source is residential single-family; applied to in-unit MF equipment of equivalent size. Incremental vs gas/electric storage ~+$2,270-2,290. source: primary-extracted."
+    },
+    {
+      "measure_id": "mf-inunit-hpwh-120v",
+      "measure_kind": "fuel_switch",
+      "category": "dhw",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily"
+      ],
+      "capex": {
+        "low": 3392,
+        "base": 3392,
+        "high": 3392
+      },
+      "cost_breakdown": {
+        "material": 0.0,
+        "labour": 0.22,
+        "equipment": 0.78
+      },
+      "contingency_pct": 0.2,
+      "escalation": {
+        "base_year": 2023,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "nescaum-hpwh"
+      ],
+      "notes": "In-unit multifamily 120V plug-in heat-pump water heater (65 gal, UEF ~3.2), installed. NESCAUM/Energy Solutions 2024, base 2023$, US-average row: equipment $2,630 (NBI) + labor $762 = installed $3,392. NO panel upgrade needed (plug-in 120V) and faster install (~4 hr vs 6.95 hr for 240V) -- hence flat low/base/high; equipment is costlier than 240V (larger tank + integrated mixing valve). State installed range $3,149 (VA) - $3,804 (NY); use region arg to regionalize. Residential SF source applied to in-unit MF. source: primary-extracted."
+    },
+    {
+      "measure_id": "mf-inunit-ashp-split-unitary",
+      "measure_kind": "fuel_switch",
+      "category": "hvac_heating",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily"
+      ],
+      "capex": {
+        "low": 9392,
+        "base": 11179,
+        "high": 13530
+      },
+      "cost_breakdown": {
+        "material": 0.15,
+        "labour": 0.36,
+        "equipment": 0.49
+      },
+      "contingency_pct": 0.2,
+      "escalation": {
+        "base_year": 2024,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "nescaum-hp"
+      ],
+      "notes": "Ducted split unitary air-source heat pump (whole-unit heating+cooling, normalized 65 kBtu/h), installed. NESCAUM/Energy Solutions Oct-2024, base 2024$, Table 20 US-average cells: low $9,392 (existing ductwork, no panel upgrade); base $11,179 (new distribution, no panel -- typical off gas furnace/baseboard); high $13,530 (new distribution + panel upgrade). Cheapest whole-unit HP option. Panel adder ~$2,351, new-duct adder ~$4,500; existing-ductwork retrofit gets ~40% labour discount. Residential whole-home source applied to in-unit / townhome / small-building MF. source: primary-extracted (OCR of image table)."
+    },
+    {
+      "measure_id": "mf-inunit-ashp-packaged-unitary",
+      "measure_kind": "fuel_switch",
+      "category": "hvac_heating",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily"
+      ],
+      "capex": {
+        "low": 10216,
+        "base": 12002,
+        "high": 14353
+      },
+      "cost_breakdown": {
+        "material": 0.15,
+        "labour": 0.36,
+        "equipment": 0.49
+      },
+      "contingency_pct": 0.2,
+      "escalation": {
+        "base_year": 2024,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "nescaum-hp"
+      ],
+      "notes": "Ducted packaged unitary air-source heat pump (65 kBtu/h), installed. NESCAUM/Energy Solutions Oct-2024, base 2024$, Table 20 US-average: low $10,216 (existing duct, no panel); base $12,002 (new dist, no panel); high $14,353 (new dist + panel). ~$800 above split unitary. Same distribution/panel adders as split unitary. Residential whole-home source applied to in-unit/small-building MF. source: primary-extracted (OCR of image table)."
+    },
+    {
+      "measure_id": "mf-inunit-ashp-ducted-minisplit",
+      "measure_kind": "fuel_switch",
+      "category": "hvac_heating",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily"
+      ],
+      "capex": {
+        "low": 13546,
+        "base": 15333,
+        "high": 17684
+      },
+      "cost_breakdown": {
+        "material": 0.11,
+        "labour": 0.4,
+        "equipment": 0.49
+      },
+      "contingency_pct": 0.2,
+      "escalation": {
+        "base_year": 2024,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "nescaum-hp"
+      ],
+      "notes": "Ducted single-zone mini-split air-source heat pump (65 kBtu/h), installed. NESCAUM/Energy Solutions Oct-2024, base 2024$, Table 20 US-average: low $13,546 (existing duct, no panel); base $15,333 (new dist, no panel); high $17,684 (new dist + panel). Breakdown from MassCEC single-zone mini-split actuals. Residential whole-home source applied to in-unit MF. source: primary-extracted (OCR of image table)."
+    },
+    {
+      "measure_id": "mf-inunit-ashp-ductless-multisplit",
+      "measure_kind": "fuel_switch",
+      "category": "hvac_heating",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily"
+      ],
+      "capex": {
+        "low": 15818,
+        "base": 15818,
+        "high": 18170
+      },
+      "cost_breakdown": {
+        "material": 0.08,
+        "labour": 0.4,
+        "equipment": 0.52
+      },
+      "contingency_pct": 0.2,
+      "escalation": {
+        "base_year": 2024,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "nescaum-hp"
+      ],
+      "notes": "Ductless 3-zone mini/multi-split air-source heat pump (65 kBtu/h), installed -- the dominant in-unit MF retrofit where no ductwork exists. NESCAUM/Energy Solutions Oct-2024, base 2024$, Table 20 US-average: no-panel $15,818 (low/base -- ductless has no ductwork variability), with-panel $18,170 (high). Slightly above ducted single-zone due to more zones. Breakdown from MassCEC multi-split actuals. Residential whole-home source applied to in-unit MF. source: primary-extracted (OCR of image table)."
+    },
+    {
+      "measure_id": "mf-awhp-hydronic",
+      "measure_kind": "fuel_switch",
+      "category": "hvac_heating",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily"
+      ],
+      "capex": {
+        "low": 52252,
+        "base": 56060,
+        "high": 58411
+      },
+      "cost_breakdown": {
+        "material": 0.33,
+        "labour": 0.3,
+        "equipment": 0.37
+      },
+      "contingency_pct": 0.25,
+      "escalation": {
+        "base_year": 2024,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "low",
+      "reference_ids": [
+        "nescaum-hp"
+      ],
+      "notes": "Air-to-water heat pump with low-temp hydronic distribution (65 kBtu/h), installed -- relevant to MF/central hydronic buildings converting off gas/oil boilers. NESCAUM/Energy Solutions Oct-2024, base 2024$, Table 21 US-average: low $52,252 (existing hydronic, no panel); base $56,060 (new low-T distribution, no panel -- typical, existing high-T loops need conversion); high $58,411 (new dist + panel). Emerging tech, high cost expected to fall as US manufacturing scales. Confidence LOW: OTR-calc vs MassCEC actual disagree ~$10k on equipment (OTR $24.2k vs MassCEC $9.1k); MassCEC total was ~$42k vs OTR ~$57k -- wide band retained. source: primary-extracted (OCR of image table)."
     }
   ]
 }
