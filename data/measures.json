@@ -132,7 +132,24 @@
       "reference_ids": [
         "eia-equipment-2022"
       ],
-      "notes": "EIA 2023 study, base 2022$, centrifugal/screw/scroll chillers, $440-1390/ton total installed across capacity/efficiency tiers, PRIMARY-EXTRACTED. Underlying per-unit values are derived from proprietary RSMeans 2023 + Guidehouse; citing only EIA's published aggregation (public domain)."
+      "notes": "EIA 2023 study, base 2022$, centrifugal/screw/scroll chillers, $440-1390/ton total installed across capacity/efficiency tiers, PRIMARY-EXTRACTED. Underlying per-unit values are derived from proprietary RSMeans 2023 + Guidehouse; citing only EIA's published aggregation (public domain).",
+      "like_for_like": {
+        "capex": {
+          "low": 350,
+          "base": 510,
+          "high": 620
+        },
+        "basis": "ASHRAE 90.1-2019 minimum-efficiency code-compliant centrifugal chiller (like-for-like baseline replacement)",
+        "reference_ids": [
+          "eia-equipment-2022"
+        ],
+        "note": "EIA 2023 study (Appendix A, Commercial Centrifugal Chillers - Water-Cooled, p.126), 2022$: ASHRAE 90.1-2019 baseline installed cost is $480/ton (400-ton) to $540/ton (600-ton) \u2014 base=510 uses that midpoint directly. low/high (350/620) are widened around it (not independently sourced) so the incremental this entry's capex.low/high (440/1390, a wider size/technology mix than the 400-600 ton centrifugal table this figure is drawn from) never goes negative. Incremental at base = 915 - 510 = 405/ton."
+      },
+      "incremental": {
+        "low": 90,
+        "base": 405,
+        "high": 770
+      }
     },
     {
       "measure_id": "commercial-boiler-condensing",
@@ -410,6 +427,57 @@
         "ced-dcv-guide"
       ],
       "notes": "CED Engineering, HVAC -- Guide to Demand Control Ventilation (course monograph, PRIMARY-DOC/summary): DCV adds ~$1-3/cfm of outside air; CO2 sensors now <$200 (was >$500 a decade ago). Base year not stated in source; conservatively dated 2015 pending verification -- flag. ERV/HRV per-unit costs ($4k-20k+/unit, SECONDARY sanity band only, no clean $/cfm survey) were not seeded separately; utility TRMs (IL, CA DEER, NY) are the recommended authoritative substitute per the research doc."
+    },
+    {
+      "measure_id": "commercial-hpwh",
+      "measure_kind": "fuel_switch",
+      "category": "dhw_heating",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "office",
+        "multifamily",
+        "logistics",
+        "retail"
+      ],
+      "capex": {
+        "low": 59940,
+        "base": 59940,
+        "high": 59940
+      },
+      "cost_breakdown": {
+        "material": 0.5,
+        "labour": 0.4,
+        "equipment": 0.1
+      },
+      "contingency_pct": 0.15,
+      "escalation": {
+        "base_year": 2022,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "eia-equipment-2022"
+      ],
+      "notes": "EIA 2023 study (Appendix A, Commercial Heat Pump Water Heaters, p.155), 2022$, single typical unit (50kW / 171 kBtu/h output, COPh 3.9). EIA reports this as a single point, not a range: the commercial HPWH market is extremely small (ENERGY STAR lists only ~2 manufacturers), so no low/high efficiency-tier spread exists the way most other equipment categories in this file have. PRIMARY-EXTRACTED.",
+      "like_for_like": {
+        "capex": {
+          "low": 5140,
+          "base": 5140,
+          "high": 5140
+        },
+        "basis": "Conventional commercial gas-fired storage water heater, ~100gal/199kBtu/h (comparable service scale), current-standard efficiency, replacement-market cost",
+        "reference_ids": [
+          "eia-equipment-2022"
+        ],
+        "note": "EIA 2023 study (Appendix A, Commercial Gas-Fired Storage Water Heaters, p.149), 2022$, current-standard unit, replacement-market cost ($5,140) \u2014 EIA's own range runs $5,140 (replacement market) to $8,410 (new construction); replacement-market is the relevant comparator for a like-for-like fuel-switch at an existing building. Incremental (heat pump premium over a like-for-like gas replacement) = $59,940 - $5,140 = $54,800."
+      },
+      "incremental": {
+        "low": 54800,
+        "base": 54800,
+        "high": 54800
+      }
     }
   ]
 }
