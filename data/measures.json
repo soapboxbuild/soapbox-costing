@@ -143,7 +143,7 @@
         "reference_ids": [
           "eia-equipment-2022"
         ],
-        "note": "EIA 2023 study (Appendix A, Commercial Centrifugal Chillers - Water-Cooled, p.126), 2022$: ASHRAE 90.1-2019 baseline installed cost is $480/ton (400-ton) to $540/ton (600-ton) \u2014 base=510 uses that midpoint directly. low/high (350/620) are widened around it (not independently sourced) so the incremental this entry's capex.low/high (440/1390, a wider size/technology mix than the 400-600 ton centrifugal table this figure is drawn from) never goes negative. Incremental at base = 915 - 510 = 405/ton."
+        "note": "EIA 2023 study (Appendix A, Commercial Centrifugal Chillers - Water-Cooled, p.126), 2022$: ASHRAE 90.1-2019 baseline installed cost is $480/ton (400-ton) to $540/ton (600-ton) — base=510 uses that midpoint directly. low/high (350/620) are widened around it (not independently sourced) so the incremental this entry's capex.low/high (440/1390, a wider size/technology mix than the 400-600 ton centrifugal table this figure is drawn from) never goes negative. Incremental at base = 915 - 510 = 405/ton."
       },
       "incremental": {
         "low": 90,
@@ -471,12 +471,161 @@
         "reference_ids": [
           "eia-equipment-2022"
         ],
-        "note": "EIA 2023 study (Appendix A, Commercial Gas-Fired Storage Water Heaters, p.149), 2022$, current-standard unit, replacement-market cost ($5,140) \u2014 EIA's own range runs $5,140 (replacement market) to $8,410 (new construction); replacement-market is the relevant comparator for a like-for-like fuel-switch at an existing building. Incremental (heat pump premium over a like-for-like gas replacement) = $59,940 - $5,140 = $54,800."
+        "note": "EIA 2023 study (Appendix A, Commercial Gas-Fired Storage Water Heaters, p.149), 2022$, current-standard unit, replacement-market cost ($5,140) — EIA's own range runs $5,140 (replacement market) to $8,410 (new construction); replacement-market is the relevant comparator for a like-for-like fuel-switch at an existing building. Incremental (heat pump premium over a like-for-like gas replacement) = $59,940 - $5,140 = $54,800."
       },
       "incremental": {
         "low": 54800,
         "base": 54800,
         "high": 54800
+      }
+    },
+    {
+      "measure_id": "residential-hpwh-inunit",
+      "measure_kind": "fuel_switch",
+      "category": "dhw_heating",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily",
+        "residential"
+      ],
+      "capex": {
+        "low": 2756,
+        "base": 3152,
+        "high": 5427
+      },
+      "cost_breakdown": {
+        "material": 0.55,
+        "labour": 0.4,
+        "equipment": 0.05
+      },
+      "contingency_pct": 0.15,
+      "escalation": {
+        "base_year": 2023,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "nescaum-hpwh",
+        "dnv-cpuc-water-heat-tech",
+        "calnext-hpwh-2025"
+      ],
+      "notes": "NESCAUM (2023), 'Heat Pump Water Heaters in the Northeast and Mid-Atlantic - Costs and Market Trends', Table 18 (p.35), 2023$: 240V in-unit HPWH (45-55 gal) TOTAL INSTALLED cost, no panel upgrade = $3,152 avg (state range $2,756 VA - $3,904 NY); WITH panel upgrade = $5,427 avg (up to $7,533 NY). capex.low/base use the no-panel-upgrade case; capex.high uses the with-panel-upgrade average because in-unit multifamily electrification frequently triggers an electrical panel upgrade. PRIMARY-EXTRACTED; regional (NE/Mid-Atlantic) figure applied nationally -> medium confidence. Corroborating: DNV/CPUC 2017 (CA MF HPWH installed ~$1,500-1,800) and CalNEXT 2025 (unitary 240V HPWH equipment ~$2,098). cost_breakdown material/labour split (~0.58/0.42) follows NESCAUM's equipment ($1,837) vs labour ($1,314) rows; the 0.05 equipment share is an allocation-judgment placeholder consistent with the rest of this file. NOTE: the task-suggested baseline source neea-pricing-water-heaters-2022 is a willingness-to-pay conjoint survey, NOT a measured cost, so the baseline was taken from NESCAUM's same-study electric-storage row instead.",
+      "like_for_like": {
+        "capex": {
+          "low": 788,
+          "base": 882,
+          "high": 1056
+        },
+        "basis": "standard electric-resistance storage water heater (UEF 0.92, 40-50 gal) - code-minimum in-kind replacement",
+        "reference_ids": [
+          "nescaum-hpwh"
+        ],
+        "note": "NESCAUM (2023) Table 17 (p.34), 2023$: electric-resistance storage water heater (UEF 0.92, 40-50 gal) TOTAL INSTALLED = $882 avg (state range $788 VA - $1,056 NY). Same study and base year as the HPWH figure -> clean like-for-like. Incremental (HPWH premium over a standard electric-storage replacement) at base year = $3,152 - $882 = $2,270/unit. Apply the incremental as the CapEx basis ONLY when the existing water heater is at/near end-of-life (per the asset RUL); for a healthy unit the full capex is incremental."
+      },
+      "incremental": {
+        "low": 1968,
+        "base": 2270,
+        "high": 4371
+      }
+    },
+    {
+      "measure_id": "residential-ashp-split-condenser",
+      "measure_kind": "fuel_switch",
+      "category": "hvac_heating",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily",
+        "residential"
+      ],
+      "capex": {
+        "low": 6730,
+        "base": 6940,
+        "high": 8620
+      },
+      "cost_breakdown": {
+        "material": 0.5,
+        "labour": 0.4,
+        "equipment": 0.1
+      },
+      "contingency_pct": 0.15,
+      "escalation": {
+        "base_year": 2022,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "high",
+      "reference_ids": [
+        "eia-equipment-2022"
+      ],
+      "notes": "EIA 'Updated Buildings Sector Appliance and Equipment Costs and Efficiency' (2023, base 2022$), Residential Air-Source Heat Pumps table (full report p.39): ducted 3-ton (36 kBtu/h) split ASHP TOTAL INSTALLED cost - Current Standard SEER 14.0 = $6,730 (capex.low); ENERGY STAR V6.1 SEER 16.0 / Cold-Climate = $6,940 (capex.base); High-efficiency SEER 22.6 = $8,620 (capex.high). PRIMARY-EXTRACTED. SCOPE CAVEAT: EIA prices the WHOLE split system (ASHP figures are 'blower-coil' systems), not a condenser/outdoor-unit in isolation; EIA does not break out a condenser-only $/unit, so this $/unit is whole-split-system. Ductless mini-split (1-ton, $2,030 flat) is a different size class and is deliberately NOT used here.",
+      "like_for_like": {
+        "capex": {
+          "low": 5250,
+          "base": 5310,
+          "high": 5390
+        },
+        "basis": "standard-SEER residential split-system central air conditioner (3-ton, coil-only) - code-minimum in-kind replacement",
+        "reference_ids": [
+          "eia-equipment-2022"
+        ],
+        "note": "EIA (2023, 2022$), Residential Central Air Conditioners tables (full report p.27 North, p.28 South): standard-efficiency 3-ton coil-only split AC TOTAL INSTALLED cost - Current Standard SEER 13.0 (North) = $5,250; Current Standard SEER 14.0 (South) = $5,310; Typical SEER 14.6 (South) = $5,390. Same study and base year as the ASHP figure. SCOPE CAVEAT: the AC table is 'coil-only' (no blower) whereas the ASHP measure is 'blower-coil', so the incremental (~$1,480-3,230/unit) slightly overstates the pure equipment premium by roughly the cost of a blower. Incremental at base = $6,940 - $5,310 = $1,630/unit. Apply the incremental as the CapEx basis ONLY when the existing AC is at/near end-of-life."
+      },
+      "incremental": {
+        "low": 1480,
+        "base": 1630,
+        "high": 3230
+      }
+    },
+    {
+      "measure_id": "pool-heat-pump-heater",
+      "measure_kind": "fuel_switch",
+      "category": "pool_equipment",
+      "unit_basis": "$/unit",
+      "archetypes": [
+        "multifamily",
+        "hospitality"
+      ],
+      "capex": {
+        "low": 7074,
+        "base": 7074,
+        "high": 7074
+      },
+      "cost_breakdown": {
+        "material": 0.55,
+        "labour": 0.35,
+        "equipment": 0.1
+      },
+      "contingency_pct": 0.2,
+      "escalation": {
+        "base_year": 2021,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "il-trm-v13-res-2025"
+      ],
+      "notes": "Illinois Statewide Technical Reference Manual v13.0, Volume 3: Residential Measures, Section 5.7.4 'Heat Pump Swimming Pool Heater' (p.516), measure RS-MSC-HPPH-V01-230101. DEEMED single-value gross INSTALLED cost = $7,074/unit (includes material cost of heat pump, installation infrastructure, and labour); the TRM publishes no low/base/high band, so capex low=base=high. Underlying cost basis is the 2021 California TRM / SCE 'SWRE005-01 Cost Analysis.xlsm' (footnote 1872) -> base_year stamped 2021 (not pre-escalated; tool escalates at query time). AUTHORITATIVE (state regulatory deemed-cost manual). Deemed single point on a ~2021 basis -> medium confidence. cost_breakdown shares are allocation-judgment placeholders consistent with the rest of this file (the TRM does not decompose the cost). APPLICABILITY: the like_for_like baseline here is a GAS pool heater (per the IL TRM's gas-vs-heat-pump framing). For an all-electric property whose existing heater is electric-resistance, this gas baseline does not apply — the in-kind replacement is a standard electric-resistance heater, which needs its own sourced cost before the like_for_like credit is used on such an asset.",
+      "like_for_like": {
+        "capex": {
+          "low": 5158,
+          "base": 5158,
+          "high": 5158
+        },
+        "basis": "standard gas-fired swimming-pool heater - code-minimum in-kind replacement",
+        "reference_ids": [
+          "il-trm-v13-res-2025"
+        ],
+        "note": "Same IL TRM section 5.7.4 table (p.516): gas-heater baseline gross installed = $5,158/unit. The TRM's own published incremental (heat pump over gas) = $1,916/unit, which equals $7,074 - $5,158 exactly. Apply the incremental as the CapEx basis ONLY when the existing gas pool heater is at/near end-of-life; otherwise the full $7,074 is incremental."
+      },
+      "incremental": {
+        "low": 1916,
+        "base": 1916,
+        "high": 1916
       }
     }
   ]
