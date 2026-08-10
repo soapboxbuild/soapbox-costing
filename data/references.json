@@ -431,6 +431,18 @@
       "url": "https://repository.lib.ncsu.edu/items/d6963244-b3f7-4051-b1f9-e7650a7463a8",
       "license": "academic repository",
       "confidence": "medium"
+    },
+    {
+      "id": "il-trm-v13-res-2025",
+      "system_type": "pool_equipment",
+      "citation": "Illinois Commerce Commission / Illinois Stakeholder Advisory Group (ILSAG), \"Illinois Statewide Technical Reference Manual for Energy Efficiency, Version 13.0, Volume 3: Residential Measures\", effective 2025-01-01 (dated 2024-09-20)",
+      "publisher": "Illinois Commerce Commission / ILSAG",
+      "year": 2021,
+      "reported_range": "Heat Pump Swimming Pool Heater (§5.7.4, p.516): gas-heater baseline $5,158/unit installed, heat-pump heater $7,074/unit installed, incremental $1,916/unit. High Efficiency Pool Pumps (§5.7.1, p.505): variable-speed pool pump incremental cost over a two-speed federal-standard baseline = $314/unit (in-ground), $930/unit (above-ground) — incremental only, no gross installed cost published.",
+      "unit_basis": "$/unit",
+      "url": "https://www.ilsag.info/wp-content/uploads/IL-TRM_Effective_010125_v13.0_Vol_3_Res_09202024_FINAL.pdf",
+      "license": "public (state regulatory deemed-savings manual)",
+      "confidence": "medium"
     }
   ]
 }
