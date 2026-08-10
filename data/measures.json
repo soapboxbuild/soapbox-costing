@@ -5,7 +5,7 @@
       "measure_id": "commercial-ashp-rtu",
       "measure_kind": "fuel_switch",
       "category": "hvac_heating",
-      "unit_basis": "$/unit",
+      "unit_basis": "$/unit (one 90 kBtu/h / 7.5-ton air-cooled commercial packaged rooftop unit)",
       "archetypes": [
         "office",
         "multifamily",
@@ -13,9 +13,9 @@
         "retail"
       ],
       "capex": {
-        "low": 4000,
-        "base": 4990,
-        "high": 5980
+        "low": 12900,
+        "base": 14940,
+        "high": 18860
       },
       "cost_breakdown": {
         "material": 0.5,
@@ -33,7 +33,24 @@
       "reference_ids": [
         "eia-equipment-2022"
       ],
-      "notes": "EIA Updated Buildings Sector Equipment Costs 2023 (base 2022$), commercial rooftop heat pump tiers, Appendix A. Per-unit total installed cost, PRIMARY-EXTRACTED."
+      "like_for_like": {
+        "capex": {
+          "low": 11870,
+          "base": 11870,
+          "high": 17600
+        },
+        "basis": "Code-minimum in-kind replacement: air-cooled small commercial packaged rooftop air conditioner, 90 kBtu/h (7.5 tons), same size class as the heat pump (the RTU the owner would install anyway at end of life)",
+        "reference_ids": [
+          "eia-equipment-2022"
+        ],
+        "note": "EIA (2023), 'Updated Buildings Sector Appliance and Equipment Costs and Efficiency' (base 2022$), Appendix A, 'Commercial Rooftop Air Conditioners' DATA table, p.135, 90 kBtu/h (7.5 tons). Total Installed Cost (2022$), 2022 columns: low=$11,870 (Current Standard, i.e. code-minimum), base=$11,870 (Typical - identical to Current Standard in the 2022 column), high=$17,600 (High-efficiency). Verbatim; not interpolated. Incremental (capex - like_for_like) = 1,030 / 3,070 / 1,260 per unit at low/base/high - non-negative at every point."
+      },
+      "incremental": {
+        "low": 1030,
+        "base": 3070,
+        "high": 1260
+      },
+      "notes": "CORRECTED (soapbox-costing issue #4). One unit = one 90 kBtu/h (7.5-ton) air-cooled commercial packaged rooftop unit. capex from EIA (2023), 'Updated Buildings Sector Appliance and Equipment Costs and Efficiency' (base 2022$), Appendix A, 'Commercial Rooftop Heat Pumps' DATA table, p.139, Total Installed Cost (2022$), 2022 columns: low=$12,900 (Current Standard), base=$14,940 (Typical), high=$18,860 (High-efficiency). All figures verbatim from the source tables (no interpolation). PRIOR VALUES ($4,000/4,990/5,980) WERE WRONG: they are the EIA RESIDENTIAL Central Air Conditioner, 36 kBtu/h (3-ton) table (Appendix A, p.27) - low/high were that table's 2015 Installed Base ($4,000) and 2022 High ($5,980) endpoints and base ($4,990) was their midpoint (interpolated). Correction raises per-unit scale ~3x (base $4,990 -> $14,940) because one unit is now a 7.5-ton commercial RTU, not a 3-ton residential split system. like_for_like is a code-minimum in-kind 7.5-ton packaged rooftop AC (same report, p.135) so the incremental captures only the heat-pump premium. cost_breakdown (0.5/0.4/0.1) and contingency_pct (0.15) are unchanged from the prior seed and are NOT independently sourced from EIA (EIA reports only a single Total Installed Cost). Escalation base_year kept at 2022 (EIA base year)."
     },
     {
       "measure_id": "commercial-vrf",
@@ -627,6 +644,56 @@
         "base": 1916,
         "high": 1916
       }
+    },
+    {
+      "measure_id": "pool-variable-speed-circulation-pump",
+      "measure_kind": "efficiency_upgrade",
+      "category": "pool_equipment",
+      "unit_basis": "$/unit (one standard-size self-priming residential in-ground pool filter pump)",
+      "archetypes": [
+        "multifamily",
+        "hospitality"
+      ],
+      "capex": {
+        "low": 853,
+        "base": 853,
+        "high": 853
+      },
+      "cost_breakdown": {
+        "material": 0.55,
+        "labour": 0.35,
+        "equipment": 0.1
+      },
+      "contingency_pct": 0.2,
+      "escalation": {
+        "base_year": 2015,
+        "index": "BLS PPI construction",
+        "index_vintage": "2026-06",
+        "escalated_to": 2026
+      },
+      "confidence": "medium",
+      "reference_ids": [
+        "doe-dppp-dfr-2016",
+        "il-trm-v13-res-2025"
+      ],
+      "like_for_like": {
+        "capex": {
+          "low": 481,
+          "base": 481,
+          "high": 481
+        },
+        "basis": "Low-efficiency single-speed pool filter pump (DOE efficiency level 0 / baseline) - the pre-standard single-speed pump replaced in kind",
+        "reference_ids": [
+          "doe-dppp-dfr-2016"
+        ],
+        "note": "DOE DPPP Direct Final Rule, Table V-2 (p.231, 2015$), Standard-Size Self-Priming Pool Filter Pump: Baseline (EL0) gross Installed Cost = $481/unit. Verbatim, not interpolated. Incremental (variable-speed EL7 $853 - single-speed baseline EL0 $481) = $372/unit (2015$). APPLICABILITY: the adopted federal standard (recommended TSL3 = EL6, compliance 2021) effectively requires variable-speed for this pump class, so a new single-speed install is no longer code-legal - the $481 single-speed credit applies ONLY when an EXISTING single-speed pump is being replaced at end of life (end-of-life in-kind logic per the schema's like_for_like semantics)."
+      },
+      "incremental": {
+        "low": 372,
+        "base": 372,
+        "high": 372
+      },
+      "notes": "GROSS installed cost sourced from U.S. DOE, 'Energy Conservation Standards for Dedicated-Purpose Pool Pumps' Direct Final Rule / TSD (docket EERE-2015-BT-STD-0008, Dec 2016), Table V-2 'Average LCC and PBP Results for Standard-Size Self-Priming Pool Filter Pump' (p.231), costs in 2015$. capex = variable-speed pump gross Installed Cost = $853/unit (EL7, variable-speed high hydro efficiency; EL6 variable-speed low hydro efficiency is also $853). like_for_like = single-speed baseline (EL0) gross Installed Cost = $481/unit. Efficiency-level definitions from Table IV-29 (p.182). These are Monte-Carlo national-average installed costs; DOE Table V-2 publishes a single average per efficiency level, not a low/base/high band, so capex and like_for_like are single points (low=base=high) - NOT interpolated. base_year stamped 2015 (2015$; the tool escalates at query time). CROSS-CHECK: IL TRM v13 §5.7.1 (p.505) publishes a variable-speed incremental of $314/unit in-ground over a TWO-SPEED federal-standard baseline; the DOE $372/unit incremental here is measured over a LOW-EFFICIENCY SINGLE-SPEED baseline (EL0). The two roughly reconcile and differ in the expected direction: a two-speed baseline (DOE EL5 = $823) is costlier than the single-speed EL0, leaving a smaller remaining increment to VSD, consistent with IL TRM's $314 < DOE's $372. confidence=medium (single national-average point, 2015$ vintage). cost_breakdown shares and contingency_pct (0.2) are allocation-judgment placeholders consistent with the pool-heat-pump-heater entry; DOE does not decompose the installed cost."
     }
   ]
 }

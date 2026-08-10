@@ -443,6 +443,18 @@
       "url": "https://www.ilsag.info/wp-content/uploads/IL-TRM_Effective_010125_v13.0_Vol_3_Res_09202024_FINAL.pdf",
       "license": "public (state regulatory deemed-savings manual)",
       "confidence": "medium"
+    },
+    {
+      "id": "doe-dppp-dfr-2016",
+      "system_type": "pool_equipment",
+      "citation": "U.S. Department of Energy, \"Energy Conservation Standards for Dedicated-Purpose Pool Pumps\", Direct Final Rule / Technical Support Document (docket EERE-2015-BT-STD-0008), issued December 2016 (costs in 2015$, present year 2016)",
+      "publisher": "U.S. Department of Energy",
+      "year": 2015,
+      "reported_range": "Table V-2 'Average LCC and PBP Results for Standard-Size Self-Priming Pool Filter Pump' (p.231, 2015$): gross Installed Cost by efficiency level - Baseline/EL0 (low-efficiency single-speed) = $481; EL2 (high-efficiency single-speed) = $576; EL5 (high-efficiency two-speed) = $823; EL6 (variable-speed, low hydro eff) = $853; EL7 (variable-speed, high hydro eff) = $853. EL definitions from Table IV-29 (p.182).",
+      "unit_basis": "$/unit",
+      "url": "https://www.energy.gov/sites/prod/files/2016/12/f34/DPPP_ECS_Direct_Final_Rule.pdf",
+      "license": "public domain (US Government work)",
+      "confidence": "high"
     }
   ]
 }
